@@ -4,11 +4,12 @@ import Card from './card';
 
 export default function CardList(props) {
 	return (
-		<div className="card-list">
-			<div className="list-title">List Title</div>
-			<Card text="card text" />
+		<div className="card-list" >
+			<div className="list-title">{props.title}</div>
+			<div className="card-contents">{props.cards}</div>
+			<Card />
 			<form onSubmit={props.submitHandler}>
-				<input type="text" onChange={props.changeHandler}/>
+				<input type="text" value={props.text} onChange={props.changeHandler}/>
 				<button type="submit">Submit</button>
 			</form>
 		</div>

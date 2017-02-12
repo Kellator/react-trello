@@ -9,11 +9,29 @@ export default class ListContainer extends React.Component {
 			text: '',
 			cards: []
 		};
+		this.onAddInputChanged = this.onAddInputChanged.bind(this);
+		this.onAddSubmit = this.onAddSubmit.bind(this);
+	}
+	onAddSubmit(event) {
+		event.preventDefault();
+		var newCardsArray = this.state.cards.slice();
+		newCardsArray.push(this.state.text);
+		this.setState({
+			submitted: true,
+			cards: newCardsArray
+		});
+	}
+	onAddInputChanged(event) {
+		this.setState({text: event.target.value});
+		this.setState({
+			changed: true
+		});
 	}
 	render() {
+		console.log(this.state);
 		return (
 			<div className='list-container'>
-				<CardList submitHandler={this.onAddSubmit} changeHandler={this.onAddInputChanged} />
+				<CardList  cards={this.cards} submitHandler={this.onAddSubmit} changeHandler={this.onAddInputChanged}/>
 			</div>
 		);
 	}
