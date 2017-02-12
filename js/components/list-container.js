@@ -31,7 +31,8 @@ export default class ListContainer extends React.Component {
 		console.log(this.state);
 		return (
 			<div className='list-container'>
-				<CardList  cards={this.cards} submitHandler={this.onAddSubmit} changeHandler={this.onAddInputChanged}/>
+				<CardList text={this.state.text} cards={this.state.cards} 
+				submitHandler={this.onAddSubmit} changeHandler={this.onAddInputChanged}/>
 			</div>
 		);
 	}
