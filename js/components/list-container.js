@@ -22,8 +22,8 @@ export default class ListContainer extends React.Component {
 		});
 	}
 	onAddInputChanged(event) {
-		this.setState({text: event.target.value});
 		this.setState({
+			text: event.target.value,
 			changed: true
 		});
 	}
