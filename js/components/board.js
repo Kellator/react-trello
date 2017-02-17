@@ -14,8 +14,8 @@ export default class Board extends React.Component {
 		return (
 			<div className="board">
 				<div className="board-title">{this.props.title}</div>
-				<div className="list-titles">{this.props.lists}</div>
-				<ListContainer />
+				<ListContainer title="List A" />
+				<ListContainer title="List B" />
 			</div>
 		);
 	}
