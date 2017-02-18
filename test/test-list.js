@@ -11,8 +11,8 @@ describe('List component', function() {
 		const title = "List Title";
 		const cards = ["peaches", "cream"];
 		const index = "1";
-		const list = [{text: "text 1", cards: "1"}, {text: "text 2", cards: "2"}, 
-		{text: "text 3", cards: "3"}];
+		const list = [{text: "text 1", cards: cards}, {text: "text 2", cards: cards}, 
+		{text: "text 3", cards: cards}];
 
 		const renderer = TestUtils.createRenderer();
 		renderer.render(<CardList text={text} cards={cards} index={index} />);
@@ -31,6 +31,5 @@ describe('List component', function() {
 		listThree.type.should.equal('form');
 		listThree.props.children[0].type.should.equal('input');
 		listThree.props.children[1].type.should.equal('button');
-		console.log(listThree.props);
 	});
 });
