@@ -9,13 +9,28 @@ describe('List component', function() {
 	it('Renders a list of cards', function() {
 		const text = "I am Text";
 		const title = "List Title";
-		const cards = "list";
+		const cards = ["peaches", "cream"];
 		const index = "1";
 		const list = [{text: "text 1", cards: "1"}, {text: "text 2", cards: "2"}, 
 		{text: "text 3", cards: "3"}];
 
 		const renderer = TestUtils.createRenderer();
-		console.log(renderer);
-		renderer.render(<CardList text={text} cards={cards} index={index} />)
+		renderer.render(<CardList text={text} cards={cards} index={index} />);
+		const result = renderer.getRenderOutput();
+		result.props.className.should.equal("card-list");
+
+		const listOne = result.props.children[0];
+		listOne.type.should.equal('div');
+		listOne.props.className.should.equal("list-title");
+
+		const listTwo = result.props.children[1];
+		listTwo.type.should.equal('div');
+		listTwo.props.className.should.equal("card-contents");
+
+		const listThree = result.props.children[2];
+		listThree.type.should.equal('form');
+		listThree.props.children[0].type.should.equal('input');
+		listThree.props.children[1].type.should.equal('button');
+		console.log(listThree.props);
 	});
 });
