@@ -9,7 +9,7 @@ import ListContainer from '../js/components/list-container';
 describe('ListContainer component', function() {
 	it('Renders the container which holds the lists of cards', function() {
 		const text = "I am Text";
-		const title = "Title";
+		const title = "Container Title";
 		const cards = ["peaches", "cream"];
 		const index = "1";
 		const list = [{text: "text 1", cards: cards}, {text: "text 2", cards: cards}, 
